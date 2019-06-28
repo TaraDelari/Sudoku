@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SudokuService.Services
 {
-    class SudokuBoardValidator
+    public class SudokuBoardValidator
     {
         public static Result Validate(SudokuBoard board)
         {
