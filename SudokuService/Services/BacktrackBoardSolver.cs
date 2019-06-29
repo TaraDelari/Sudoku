@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SudokuService.Models
 {
-    class BacktrackSudokuBoardSolver : ISudokuBoardSolver
+    public class BacktrackBoardSolver : IBoardSolver
     {
         public Result<int[]> Solve(SudokuBoard board)
         {

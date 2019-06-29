@@ -1,11 +1,11 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SudokuService.Models;
 using SudokuService.Services;
 
-namespace SudokuServiceTests
+namespace SudokuServiceTests.Services
 {
     [TestClass]
-    public class SudokuBoardValidatorTests
+    public class BoardValidator_Validate
     {
         [TestMethod]
         public void ValidBoard_True()
@@ -15,9 +15,10 @@ namespace SudokuServiceTests
                 6, 3, 9, 7, 0, 0, 0, 4, 0, 0, 6, 2, 0, 7, 3, 0, 0, 3, 0, 0, 0, 8, 9, 6, 0, 0, 7, 5, 0, 4, 3, 1, 8, 6, 0, 1,
                 8, 0, 0, 5, 0, 0, 0, 0, 6, 4, 0, 0, 2, 0, 0, 0 };
             SudokuBoard board = new SudokuBoard(cellvalues);
+            BoardValidator validator = new BoardValidator();
 
             //act
-            Result result = SudokuBoardValidator.Validate(board);
+            Result result = validator.Validate(board);
 
             //assert
             Assert.IsTrue(result.IsSuccess);
@@ -31,9 +32,10 @@ namespace SudokuServiceTests
                 6, 3, 9, 7, 0, 0, 0, 4, 0, 0, 6, 2, 0, 7, 3, 0, 0, 3, 0, 0, 0, 8, 9, 6, 0, 0, 7, 5, 0, 4, 3, 1, 8, 6, 0, 1,
                 8, 0, 0, 5, 0, 0, 0, 0, 6, 4, 0, 0, 2, 0, 0, 0 };
             SudokuBoard board = new SudokuBoard(cellvalues);
+            BoardValidator validator = new BoardValidator();
 
             //act
-            Result result = SudokuBoardValidator.Validate(board);
+            Result result = validator.Validate(board);
 
             //assert
             Assert.IsFalse(result.IsSuccess);
@@ -48,9 +50,10 @@ namespace SudokuServiceTests
                 6, 3, 9, 7, 0, 0, 0, 4, 0, 0, 6, 2, 0, 7, 3, 0, 1, 3, 0, 0, 0, 8, 9, 6, 0, 0, 7, 5, 0, 4, 3, 1, 8, 6, 0, 1,
                 8, 0, 0, 5, 0, 0, 0, 0, 6, 4, 0, 0, 2, 0, 0, 0 };
             SudokuBoard board = new SudokuBoard(cellvalues);
+            BoardValidator validator = new BoardValidator();
 
             //act
-            Result result = SudokuBoardValidator.Validate(board);
+            Result result = validator.Validate(board);
 
             //assert
             Assert.IsFalse(result.IsSuccess);
@@ -65,9 +68,10 @@ namespace SudokuServiceTests
                 6, 3, 9, 7, 0, 0, 0, 4, 0, 0, 6, 2, 0, 7, 3, 0, 1, 3, 0, 0, 0, 8, 9, 6, 0, 0, 7, 5, 0, 4, 3, 1, 8, 6, 0, 1,
                 8, 0, 0, 5, 0, 0, 0, 0, 6, 4, 0, 0, 2, 0, 0, 0 };
             SudokuBoard board = new SudokuBoard(cellvalues);
+            BoardValidator validator = new BoardValidator();
 
             //act
-            Result result = SudokuBoardValidator.Validate(board);
+            Result result = validator.Validate(board);
 
             //assert
             Assert.IsFalse(result.IsSuccess);

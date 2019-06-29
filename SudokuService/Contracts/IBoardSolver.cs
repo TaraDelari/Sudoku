@@ -2,7 +2,7 @@
 
 namespace SudokuService.Contracts
 {
-    public interface ISudokuBoardSolver
+    public interface IBoardSolver
     {
         Result<int[]> Solve(SudokuBoard board);
     }

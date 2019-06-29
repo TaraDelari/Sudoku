@@ -1,12 +1,13 @@
-﻿using SudokuService.Models;
+﻿using SudokuService.Contracts;
+using SudokuService.Models;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SudokuService.Services
 {
-    public class SudokuBoardValidator
+    public class BoardValidator : IBoardValidator
     {
-        public static Result Validate(SudokuBoard board)
+        public Result Validate(SudokuBoard board)
         {
             Result result = new Result();
             if (board.Cells.Count() != 81)

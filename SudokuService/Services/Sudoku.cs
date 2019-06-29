@@ -3,20 +3,21 @@ using SudokuService.Models;
 
 namespace SudokuService.Services
 {
-    public class SudokuBoardService
+    public class Sudoku
     {
-        private ISudokuBoardSolver _solver;
+        private IBoardSolver _solver;
+        private IBoardValidator _boardValidator;
 
-        public SudokuBoardService(ISudokuBoardSolver solver)
+        public Sudoku(IBoardSolver solver, IBoardValidator boardValidator)
         {
             _solver = solver;
+            _boardValidator = boardValidator;
         }
 
-        public Result<int[]> Solve(SolveRequest request)
+        public Result<int[]> Solve(SudokuBoard board)
         {
             Result<int[]> result = new Result<int[]>();
-            SudokuBoard board = new SudokuBoard(request.BoardFields);
-            Result validationResult = SudokuBoardValidator.Validate(board);
+            Result validationResult = _boardValidator.Validate(board);
             if (!validationResult.IsSuccess)
             {
                 result.Error = validationResult.Error;

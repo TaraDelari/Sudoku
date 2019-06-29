@@ -13,8 +13,9 @@ namespace SudokuService
     {
         public void Configure(IWebJobsBuilder builder)
         {
-            builder.Services.AddTransient<ISudokuBoardSolver, BacktrackSudokuBoardSolver>();
-            builder.Services.AddTransient<SudokuBoardService>();
+            builder.Services.AddTransient<Sudoku>();
+            builder.Services.AddTransient<IBoardSolver, BacktrackBoardSolver>();
+            builder.Services.AddTransient<IBoardValidator, BoardValidator>();
         }
     }
 }
